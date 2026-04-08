@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>De Elewijtse Scoutsvrienden | ESV vzw</title>
+    <!-- Google Fonts & simple reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #faf9f6;
+            color: #1e2a2e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* scout / outdoor accent colors */
+        :root {
+            --scout-green: #2b5e2f;
+            --scout-gold: #e6b422;
+            --scout-dark: #1a3b2e;
+            --stone-light: #f4f0e6;
+            --charcoal: #2c3e2f;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* header & nav */
+        .top-bar {
+            background: white;
+            border-bottom: 3px solid var(--scout-gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            background: rgba(255,255,245,0.96);
+        }
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0.9rem 0;
+            gap: 1rem;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, var(--scout-green) 0%, #1f5430 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .logo p {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #5b6e5a;
+            letter-spacing: 0.3px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2d3e2a;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover {
+            border-bottom-color: var(--scout-gold);
+            color: #1b4d1f;
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(105deg, #eef3e9 0%, #e0e8da 100%);
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid #d6dfce;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .hero-text {
+            flex: 1.2;
+        }
+        .hero-text h2 {
+            font-size: 2.9rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--scout-dark);
+        }
+        .hero-text .badge {
+            display: inline-block;
+            background: var(--scout-gold);
+            color: #2a481f;
+            font-weight: 700;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem;
+            color: #2b4b2a;
+            max-width: 550px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .stat {
+            font-weight: 700;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--scout-green);
+        }
+        .hero-logo {
+            flex: 0.7;
+            background: rgba(255,255,245,0.7);
+            padding: 1.8rem;
+            border-radius: 48px;
+            text-align: center;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.05);
+        }
+        .hero-logo .big-icon {
+            font-size: 5rem;
+        }
+        .hero-logo h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #2d5729;
+        }
+
+        /* sections general */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid #e4e4dc;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--scout-gold);
+            border-radius: 4px;
+        }
+        .grid-2col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-top: 1rem;
+        }
+        .card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 28px;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.05);
+            border: 1px solid #ece8dd;
+            transition: 0.2s;
+            flex: 1;
+        }
+        .card:hover {
+            border-color: #cbd9bf;
+            box-shadow: 0 18px 30px -12px rgba(0,0,0,0.08);
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2b5e2f;
+        }
+        .info-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .info-list li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .info-list li strong {
+            min-width: 110px;
+            font-weight: 700;
+        }
+        .founder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .founder-item {
+            background: #fefcf7;
+            padding: 0.7rem 1rem;
+            border-radius: 48px;
+            font-size: 0.9rem;
+            border: 1px solid #e7e2d4;
+        }
+        .legal-note {
+            background: #eef1e9;
+            padding: 1rem 1.6rem;
+            border-radius: 24px;
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+            color: #3b5535;
+        }
+        .btn-outline {
+            display: inline-block;
+            margin-top: 1rem;
+            border: 2px solid var(--scout-green);
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--scout-green);
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            background: var(--scout-green);
+            color: white;
+        }
+        footer {
+            background: #1f2a1c;
+            color: #dddecb;
+            padding: 3rem 0 2rem;
+            font-size: 0.85rem;
+        }
+        .footer-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .footer-col p {
+            margin: 0.3rem 0;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 0 1.5rem; }
+            .hero-text h2 { font-size: 2rem; }
+            .nav-flex { flex-direction: column; align-items: start; }
+            .section-title { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="container nav-flex">
+        <div class="logo">
+            <h1>De Elewijtse Scoutsvrienden</h1>
+            <p>vzw — sinds 2015 | scouts & gidsen Sint-Joris Elewijt</p>
+        </div>
+        <div class="nav-links">
+            <a href="#over">Over ESV</a>
+            <a href="#doel">Doel & activiteiten</a>
+        </div>
+    </div>
+</div>
+
+<header class="hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <span class="badge">⚜️ Materiële ondersteuning & ontwikkeling</span>
+            <h2>Steunpunt van Scouts en Gidsen<br>Sint-Joris Elewijt</h2>
+            <p>De Elewijtse Scoutsvrienden (ESV) zet zich volledig in voor de lokalen, terreinen en materialen van de scoutsgroep. Wij zijn de drijvende kracht achter de gebouwen en de toekomst van de groep.</p>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number">Sinds 2015</span><br>VZW opgericht</div>
+                <div class="stat"><span class="stat-number">B1405G</span><br>Scouts & Gidsen Vlaanderen</div>
+                <div class="stat"><span class="stat-number">8+</span><br>toegewijde leden</div>
+            </div>
+        </div>
+        <div class="hero-logo">
+            <div class="big-icon">⛺⚜️</div>
+            <h3>ESV</h3>
+            <p style="margin-top: 0.5rem;">Diependaalstraat 34<br>1982 Elewijt</p>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Over / identiteit -->
+    <section id="over">
+        <div class="container">
+            <h2 class="section-title">Over ESV vzw</h2>
+            <div class="grid-2col">
+                <div class="card">
+                    <h3>📜 Identiteit</h3>
+                    <ul class="info-list">
+                        <li><strong>Benaming:</strong> De Elewijtse Scoutsvrienden (ESV)</li>
+                        <li><strong>Rechtsvorm:</strong> Vereniging zonder winstoogmerk (VZW)</li>
+                        <li><strong>Ondernemingsnr:</strong> 0628.557.921</li>
+                        <li><strong>Zetel:</strong> Diependaalstraat 34, 1982 Zemst (Elewijt)</li>
+                        <li><strong>Oprichting:</strong> 22 maart 2015 – Belgisch Staatsblad 15/04/2015</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🏕️ Missie</h3>
+                    <p>Exclusief en zonder winstoogmerk: materiële ondersteuning, ontwikkeling en beheer van de lokalen, terreinen en materiaal van scouts- en gidsengroep Sint-Joris Elewijt (groepsnummer B1405G). We treden op als bouwheer en beheerder, onderhouden de infrastructuur en waarborgen een duurzame toekomst voor de jeugdbeweging.</p>
+                    <a href="#doel" class="btn-outline">Ontdek onze doelstellingen →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doel & activiteiten (art.5-6) -->
+    <section id="doel" style="background: #fefcf8;">
+        <div class="container">
+            <h2 class="section-title">Doelstellingen & activiteiten</h2>
+            <div class="grid-2col">
+                <div class="card">
+                    <h3>🎯 Doeleinden</h3>
+                    <ul class="info-list" style="list-style: disc; padding-left: 1.2rem;">
+                        <li>Optreden als beheerder en bouwheer van huidige en toekomstige lokalen, terreinen en materiaal.</li>
+                        <li>Zich ontfermen over verhuur en onderhoud van de lokalen.</li>
+                        <li>Inzage in financiële middelen en boekhouding van de Scoutsgroep.</li>
+                        <li>Ondersteunen van scouts & gidsen Sint-Joris Elewijt in alle mogelijke materiële noden.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>⚙️ Concrete activiteiten</h3>
+                    <p>Alle rechtstreekse of onrechtstreekse activiteiten die bijdragen tot de ideële doelen. Ook bijkomstige commerciële of winstgevende initiatieven zijn toegelaten, mits de opbrengsten volledig worden besteed aan de vzw-doelstellingen. Denk aan: fuiven, sponsors, projecten.</p>
+                </div>
+            </div>
+            <div class="legal-note">
+                <strong>📌 Opmerking:</strong> De VZW handelt met uitsluiting van winstoogmerk. Alle overschotten worden geherinvesteerd in de scoutsgroep. Jaarlijkse Algemene Vergadering ten laatste 31 oktober. Boekjaar: 1 juli – 30 juni.
+            </div>
+        </div>
+    </section>
+
+
+
+
+</main>
+
+<footer>
+    <div class="container footer-flex">
+        <div class="footer-col">
+            <h4 style="color: #e6d49b;">De Elewijtse Scoutsvrienden vzw</h4>
+            <p>Diependaalstraat 34, 1982 Zemst (Elewijt)</p>
+            <p>Ondernemingsnummer: 0628.557.921</p>
+            <p>Rechtsvorm: VZW – Belgisch Staatsblad 15/04/2015</p>
+        </div>
+    </div>
+
+</footer>
+
+<!-- eenvoudige anker smooth scroll -->
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if(href === "#" || href === "") return;
+            const target = document.querySelector(href);
+            if(target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
